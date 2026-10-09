@@ -6,6 +6,19 @@ browser's `localStorage`, so they are still there after you refresh the page.
 
 No backend, no database, no build step and no dependencies.
 
+## Live versions
+
+The app is deployed on [Railway](https://railway.com):
+
+| Environment | Git branch | URL |
+|-------------|------------|-----|
+| Staging | `dev` | https://task-manager-staging-b466.up.railway.app |
+| Production | `main` | https://caring-inspiration-production-0903.up.railway.app |
+
+Each environment redeploys automatically when its branch is pushed to GitHub.
+Changes are tested on staging first, then merged from `dev` into `main` with a
+Pull Request to release them to production.
+
 ## Features
 
 - **Add tasks** with the **Add** button or by pressing **Enter**
