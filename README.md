@@ -9,7 +9,10 @@ No backend, no database, no build step and no dependencies.
 ## Features
 
 - **Add tasks** with the **Add** button or by pressing **Enter**
+- **Optional due date** for each task, shown next to the task in the list
 - **View tasks** in a list, with a "No tasks yet" message when the list is empty
+- **Calendar view**: a monthly calendar that shows each task on its due date,
+  with buttons to move between months
 - **Mark tasks as completed**: completed tasks are shown with a line through them
 - **Delete tasks** with the **Delete** button
 - **Saved automatically** to `localStorage` and loaded again on page refresh
@@ -46,7 +49,8 @@ task-manager/
 
 ## How it works
 
-Tasks are kept in an array of objects like `{ id, text, completed }`.
+Tasks are kept in an array of objects like `{ id, text, completed, dueDate }`,
+where `dueDate` is a `"YYYY-MM-DD"` string or `null`.
 Every change (add, complete or delete) updates the array, saves it to
 `localStorage` under the key `simpleTaskManager.tasks`, and redraws the list.
 When the page loads, the saved tasks are read back from `localStorage`.

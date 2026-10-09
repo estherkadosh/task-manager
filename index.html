@@ -18,11 +18,31 @@
         autocomplete="off"
         aria-label="New task"
       >
+      <input id="task-due" type="date" aria-label="Due date (optional)" title="Due date (optional)">
       <button type="submit">Add</button>
     </form>
 
-    <ul id="task-list" class="task-list"></ul>
-    <p id="empty-message" class="empty-message">No tasks yet</p>
+    <div class="view-tabs" role="tablist">
+      <button type="button" class="view-tab active" data-view="list" role="tab" aria-selected="true">List</button>
+      <button type="button" class="view-tab" data-view="calendar" role="tab" aria-selected="false">Calendar</button>
+    </div>
+
+    <section id="list-view">
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty-message" class="empty-message">No tasks yet</p>
+    </section>
+
+    <section id="calendar-view" hidden>
+      <div class="calendar-header">
+        <button type="button" id="prev-month" class="month-btn" aria-label="Previous month">&lsaquo;</button>
+        <h2 id="calendar-title"></h2>
+        <button type="button" id="next-month" class="month-btn" aria-label="Next month">&rsaquo;</button>
+      </div>
+      <div class="calendar-weekdays">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div id="calendar-grid" class="calendar-grid"></div>
+    </section>
   </main>
 
   <script src="script.js"></script>
