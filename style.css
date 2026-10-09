@@ -27,16 +27,22 @@ h1 {
 
 .task-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .task-form input {
   flex: 1;
+  min-width: 0;
   padding: 10px 12px;
   font-size: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
+}
+
+.task-form #task-input {
+  flex-basis: 100%;
 }
 
 .task-form input:focus {
@@ -88,6 +94,13 @@ h1 {
   color: #9ca3af;
 }
 
+.task-due {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
 .delete-btn {
   padding: 4px 10px;
   font-size: 0.9rem;
@@ -108,6 +121,111 @@ h1 {
   color: #9ca3af;
 }
 
-.empty-message[hidden] {
+.empty-message[hidden],
+section[hidden] {
   display: none;
+}
+
+.view-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.view-tab {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  color: #6b7280;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+
+.view-tab.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.month-btn {
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  color: #374151;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.month-btn:hover {
+  background: #e5e7eb;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.calendar-weekdays span {
+  padding: 4px 0;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.calendar-day {
+  min-height: 64px;
+  padding: 4px;
+  background: #f9fafb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.calendar-day.empty {
+  background: transparent;
+}
+
+.calendar-day.today {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+.day-number {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.calendar-task {
+  margin-top: 2px;
+  padding: 1px 4px;
+  font-size: 0.7rem;
+  color: #1e40af;
+  background: #dbeafe;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calendar-task.completed {
+  text-decoration: line-through;
+  color: #9ca3af;
+  background: #f3f4f6;
 }
